@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <div className="app-container">
-      <Header title="Meine Website" />
+      <Header title={"Herzlich Willkommen"} />
       <main className="main-content">
         <Component {...pageProps} />
       </main>
