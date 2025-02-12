@@ -2,7 +2,7 @@
 :root {
   --background-color: #f0f8f7; /* Sanftes Mintgrün */
   --text-color: #2c3e50; /* Dunkles Blau-Grau für gute Lesbarkeit */
-  --primary-color: #6ab4a6; /* Ruhiges Türkisgrün */
+  --primary-color: #7aaba2; /* Ruhiges Türkisgrün */
   --secondary-color: #84a9ac; /* Weiches Blaugrün */
   --accent-color: #5c9ead; /* Dezentes Akzentblau */
   --footer-bg: #e6f2f1; /* Leicht abgesetzte Farbe für den Footer */
@@ -18,39 +18,115 @@ body {
   flex-direction: column;
   background-color: var(--background-color);
   color: var(--text-color);
-  font-family: "Arial", sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   line-height: 1.6;
 }
-/* ✨ Header */
 .header {
-  background-color: var(--primary-color);
-  padding: 1rem;
   text-align: center;
-  color: rgb(46, 149, 218);
-  font-size: 1.2rem;
+  padding: 1rem;
+  background-color: var(--footer-bg);
+  font-size: 14px;
+  border-bottom: 2px solid var(--primary-color);
 }
 
-/* 📜 Navigation */
-nav {
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  justify-content: center;
-  gap: 15px;
+  justify-content: space-between;
+  align-items: center;
 }
 
-nav a {
+.logo-link {
+  color: var(--primary-color);
   text-decoration: none;
-  color: rgb(65, 103, 168);
+  font-size: 1.5rem;
   font-weight: bold;
-  transition: 0.3s;
+  transition: opacity 0.3s ease;
 }
 
-nav a:hover {
-  color: var(--accent-color);
+.logo-link:hover {
+  opacity: 0.9;
 }
+
+/* Navigation */
+.nav {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+
+.nav-link:hover {
+  opacity: 0.9;
+}
+.menu-button {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+/* Ersetze die bestehenden intro-* Styles in deiner global.css mit diesen */
 .intro-section {
-  background-color: var(--background-color);
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+
+.intro-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Dunkler Overlay für bessere Lesbarkeit */
+/* Ersetze den bisherigen after-Overlay mit diesem */
+.intro-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.4) 30%,
+    rgba(0, 0, 0, 0) 60%
+  );
+}
+
+.intro-text {
+  position: relative;
+  z-index: 1;
+  max-width: 500px;
+  margin: 0;
+  margin-left: 5rem;
   padding: 4rem 2rem;
-  margin-bottom: 2rem;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.intro-title {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.intro-subtitle {
+  font-size: 1.5rem;
+  line-height: 1.6;
 }
 
 .intro-content {
@@ -63,28 +139,9 @@ nav a:hover {
 }
 
 .portrait-image {
-  flex-shrink: 0;
+  border-radius: 4px; /* Ganz leicht abgerundet */
 }
 
-.intro-text {
-  flex: 1;
-}
-
-.intro-title {
-  font-size: 3rem;
-  color: var(--primary-color);
-  margin-bottom: 1rem;
-}
-
-.intro-subtitle {
-  font-size: 1.5rem;
-  color: var(--text-color);
-  line-height: 1.6;
-}
-
-.intro-image {
-  flex-shrink: 0;
-}
 /* 📌 Footer */
 .footer {
   text-align: center;
@@ -92,7 +149,7 @@ nav a:hover {
   background-color: var(--footer-bg);
   font-size: 14px;
   border-top: 2px solid var(--primary-color);
-  margin-top: auto; /* 🔥 Drückt den Footer nach unten */
+  margin-top: auto;
 }
 
 .footer a {
@@ -103,9 +160,6 @@ nav a:hover {
 
 .footer a:hover {
   color: var(--accent-color);
-}
-.menu-button {
-  display: none;
 }
 
 /* 📦 Angebote Container */
@@ -174,7 +228,6 @@ nav a:hover {
   position: absolute;
   left: 0;
 }
-/* Ergänze diese Styles in deiner global.css */
 
 .about-container {
   display: flex;
@@ -210,15 +263,49 @@ nav a:hover {
   }
 
   .header {
-    font-size: 1rem;
+    padding: 1rem;
   }
 
+  .menu-button {
+    display: block;
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: var(--primary-color);
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .nav.open {
+    display: flex;
+  }
   .content-container {
     flex-direction: column;
   }
 
-  .intro-text {
-    width: 100%;
+  /* Anpassung für mobile Geräte */
+  @media (max-width: 768px) {
+    .intro-section {
+      height: 50vh;
+    }
+
+    .intro-text {
+      padding: 2rem 1rem;
+    }
+
+    .intro-title {
+      font-size: 2rem;
+    }
+
+    .intro-subtitle {
+      font-size: 1.2rem;
+    }
   }
 
   .footer {
