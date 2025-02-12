@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import Link from "next/link"; // Füge diesen Import hinzu
+import Link from "next/link";
 
 type HeaderProps = {
   title: string;
@@ -11,7 +11,7 @@ export default function Header({ title }: HeaderProps) {
 
   const navItems = [
     { label: "Angebote", path: "/angebote" },
-    { label: "Über mich", path: "/ueber-mich" },
+    { label: "Über mich", path: "/uebermich" },
     { label: "Kontakt", path: "/kontakt" },
   ];
   return (
