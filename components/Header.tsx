@@ -2,7 +2,11 @@ import React from "react";
 import { useState } from "react";
 import Link from "next/link";
 
-export default function Header() {
+type HeaderProps = {
+  title: string; // Stellt sicher, dass der title-Prop als string erwartet wird
+};
+
+export default function Header({ title }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
@@ -16,7 +20,7 @@ export default function Header() {
     <header className="header">
       <div className="header-content">
         <Link href="/" className="logo-link">
-          Christiane Köhler
+          {title}
         </Link>
 
         {/* Hamburger Menü für Mobile */}
