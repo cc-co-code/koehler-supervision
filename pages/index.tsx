@@ -35,24 +35,21 @@ export default function Home() {
     <main>
       {/* Einführungsbereich */}
       <section className="intro-section">
-        <div className="intro-content">
-          <div className="intro-text">
-            <h1 className="intro-title">Willkommen</h1>
-            <p className="intro-subtitle">
-              Als Supervisorin biete ich Einzelsupervision, Teamsupervision und
-              Gruppensupervision an.
-            </p>
-          </div>
-          <div className="intro-image">
-            <Image
-              src="/images/A 31-24-39 (2).jpg"
-              alt="Frau in blauem Kleid im Wald"
-              width={500}
-              height={350}
-              priority
-              className="portrait-image"
-            />
-          </div>
+        <div className="intro-image">
+          <Image
+            src="/images/A 31-24-39 (2).jpg"
+            alt="Frau in blauem Kleid im Wald"
+            fill
+            priority
+            style={{ objectFit: "cover" }}
+          />
+        </div>
+        <div className="intro-text">
+          <h1 className="intro-title">Willkommen</h1>
+          <p className="intro-subtitle">
+            Als Supervisorin biete ich Einzelsupervision, Teamsupervision und
+            Gruppensupervision an.
+          </p>
         </div>
       </section>
 
