@@ -84,7 +84,77 @@ nav a:hover {
 .menu-button {
   display: none;
 }
-/* 📏 Responsives Design */
+
+/* Füge diese Styles zu deiner global.css hinzu */
+
+/* 📦 Angebote Container */
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+/* 🎯 Angebote Titel */
+.title {
+  color: var(--primary-color);
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  font-weight: bold;
+}
+
+/* 🎨 Service Cards */
+.service-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* 📝 Service Titel */
+.service-title {
+  color: var(--text-color);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 0.5rem;
+}
+
+/* 📄 Service Beschreibung */
+.service-description {
+  color: var(--text-color);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* 📋 Aufzählungsliste */
+.bullet-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.bullet-item {
+  margin-bottom: 0.8rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.bullet-item::before {
+  content: "•";
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  position: absolute;
+  left: 0;
+}
+
+/* 📱 Responsives Design */
 @media (max-width: 768px) {
   body {
     font-size: 16px;
@@ -93,6 +163,7 @@ nav a:hover {
   .header {
     font-size: 1rem;
   }
+
   .content-container {
     flex-direction: column;
   }
@@ -100,6 +171,7 @@ nav a:hover {
   .intro-text {
     width: 100%;
   }
+
   .footer {
     font-size: 12px;
   }
@@ -127,5 +199,24 @@ nav a:hover {
 
   nav.open {
     display: flex;
+  }
+
+  /* Angebote responsive Styles */
+  .container {
+    padding: 0 1rem;
+    margin: 1rem auto;
+  }
+
+  .title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .service-card {
+    padding: 1.5rem;
+  }
+
+  .service-title {
+    font-size: 1.5rem;
   }
 }
