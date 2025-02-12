@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import Link from "next/link"; // Füge diesen Import hinzu
 
 type HeaderProps = {
   title: string;
@@ -25,9 +26,9 @@ export default function Header({ title }: HeaderProps) {
       </button>
       <nav className={`nav ${isMenuOpen ? "open" : ""}`}>
         {navItems.map((item) => (
-          <a key={item.path} href={item.path}>
+          <Link key={item.path} href={item.path}>
             {item.label}
-          </a>
+          </Link>
         ))}
       </nav>
     </header>
