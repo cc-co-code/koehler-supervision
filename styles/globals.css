@@ -47,12 +47,19 @@ nav a {
 nav a:hover {
   color: var(--accent-color);
 }
-.content-container {
+.intro-section {
+  background-color: var(--background-color);
+  padding: 4rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.intro-content {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  gap: 2rem;
-  align-items: flex-start;
-  padding: 2rem;
-  flex-direction: row-reverse;
+  gap: 4rem;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .portrait-image {
@@ -61,6 +68,22 @@ nav a:hover {
 
 .intro-text {
   flex: 1;
+}
+
+.intro-title {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.intro-subtitle {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.intro-image {
+  flex-shrink: 0;
 }
 /* 📌 Footer */
 .footer {
@@ -84,8 +107,6 @@ nav a:hover {
 .menu-button {
   display: none;
 }
-
-/* Füge diese Styles zu deiner global.css hinzu */
 
 /* 📦 Angebote Container */
 .container {
@@ -263,5 +284,21 @@ nav a:hover {
     width: 100%;
     max-width: 300px;
     height: auto;
+  }
+  .intro-section {
+    padding: 2rem 1rem;
+  }
+
+  .intro-content {
+    flex-direction: column-reverse;
+    gap: 2rem;
+  }
+
+  .intro-title {
+    font-size: 2rem;
+  }
+
+  .intro-subtitle {
+    font-size: 1.2rem;
   }
 }
