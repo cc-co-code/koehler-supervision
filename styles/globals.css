@@ -255,7 +255,14 @@ body {
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+.image-container {
+  padding-left: 0;
+  margin-left: -1.5rem; /* Ausgleich für das Padding der Liste */
+}
 
+.image-container::before {
+  display: none; /* Versteckt den Bullet Point für Bilder */
+}
 /* 📱 Responsives Design */
 @media (max-width: 768px) {
   body {

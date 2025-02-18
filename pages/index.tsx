@@ -1,24 +1,5 @@
-// pages/index.tsx
 import React from "react";
 import Image from "next/image";
-
-type ServiceGroupProps = {
-  title: string;
-  items: string[];
-};
-
-const ServiceGroup = ({ title, items }: ServiceGroupProps) => (
-  <div className="service-group">
-    <h3 className="service-group-title">{title}</h3>
-    <ul className="service-list">
-      {items.map((item, index) => (
-        <li key={index} className="service-item">
-          {item}
-        </li>
-      ))}
-    </ul>
-  </div>
-);
 
 export default function Home() {
   const begleiteteGruppen = [
@@ -33,7 +14,6 @@ export default function Home() {
 
   return (
     <main>
-      {/* Einführungsbereich */}
       <section className="intro-section">
         <div className="intro-image">
           <Image
@@ -41,11 +21,14 @@ export default function Home() {
             alt="Frau in blauem Kleid im Wald"
             fill
             priority
-            style={{ objectFit: "cover" }}
+            style={{
+              objectFit: "cover",
+              objectPosition: "center 40%",
+            }}
           />
         </div>
         <div className="intro-text">
-          <h1 className="intro-title">Willkommen</h1>
+          <h1 className="intro-title">Herzlich Willkommen</h1>
           <p className="intro-subtitle">
             Als Supervisorin biete ich Einzelsupervision, Teamsupervision und
             Gruppensupervision an.
@@ -53,44 +36,48 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Hauptinhalt */}
-      <section className="main-content">
-        <div className="content-wrapper">
-          <div className="text-section">
-            <h2 className="section-title">Über Supervision</h2>
-            <p className="content-text">
-              In der Supervision geht es allgemein um den Austausch und um die
-              Reflexion von beruflichen Themen. Supervision ist eine Form der
-              beruflichen Beratung und bietet Ihnen einen geschützten Rahmen, um
-              Ihre beruflichen Situationen zu reflektieren.
-            </p>
-            <p className="content-text">
-              Wahrgenommene Schwierigkeiten und Probleme im beruflichen Kontext
-              zu erforschen, zu verstehen damit Sie Klarheit gewinnen und einen
-              Umgang und Lösungsansätze damit finden. Supervision dient zur
-              Qualitätssicherung und soll die Qualität der beruflichen Arbeit
-              sichern und verbessern.
-            </p>
-          </div>
+      <div className="container">
+        <div className="service-card">
+          <h2 className="service-title">Über Supervision</h2>
+          <p className="service-description">
+            In der Supervision geht es allgemein um die Reflexion von
+            beruflichen Themen. Supervision ist eine Form der beruflichen
+            Beratung und bietet Ihnen einen geschützten Rahmen, um Ihre
+            beruflichen Situationen zu reflektieren.
+          </p>
+          <p className="service-description">
+            Wahrgenommene Schwierigkeiten und Probleme im beruflichen Kontext zu
+            erforschen, zu verstehen damit Sie Klarheit gewinnen und einen
+            Umgang und Lösungsansätze damit finden. Supervision dient zur
+            Einhaltung qualitativer Standards und sichert damit die Qualität der
+            beruflichen Arbeit.
+          </p>
+          <p className="service-description">
+            Dies kann umso wichtiger sein, da die Arbeitswelt schneller denn je,
+            einem beständigen Wandel unterliegt. Herausforderungen, wie
+            hinzukommende Aufgaben, wandelnde Erwartungen, Umstrukturierungen in
+            Firmen und Betrieben oder neu zusammengesetzte Teams führen
+            permanent zu Veränderungen und Verunsicherung. Mit diesen
+            Veränderungen umzugehen, ist ein wichtiges Thema, um handlungsfähig
+            und gesund zu bleiben.
+          </p>
 
-          <div className="text-section">
-            <h2 className="section-title">Aktuelle Herausforderungen</h2>
-            <p className="content-text">
-              Die Arbeitswelt unterliegt schneller denn je einem beständigen
-              Wandel. Herausforderungen wie hinzukommende Aufgaben, verändernde
-              Erwartungen, Umstrukturierungen in Firmen und Betrieben oder neu
-              zusammengesetzte Teams führen permanent zu Veränderungen. Mit
-              diesen Veränderungen umzugehen, ist ein wichtiges Thema, um
-              handlungsfähig und gesund zu bleiben.
-            </p>
-          </div>
+          <h2 className="service-title">
+            Ich begleite Einzelpersonen, Teams und Institutionen, zum Beispiel:
+          </h2>
+          <ul className="bullet-list">
+            {begleiteteGruppen.map((item, index) => (
+              <li key={index} className="bullet-item">
+                {item}
+              </li>
+            ))}
+          </ul>
 
-          <ServiceGroup
-            title="Ich begleite unter anderem:"
-            items={begleiteteGruppen}
-          />
+          <p className="service-description">
+            Supervision ist in Bremen oder Bremerhaven möglich, auch vor Ort.
+          </p>
         </div>
-      </section>
+      </div>
     </main>
   );
 }
