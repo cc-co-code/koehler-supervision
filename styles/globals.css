@@ -6,6 +6,8 @@
   --secondary-color: #84a9ac; /* Weiches Blaugrün */
   --accent-color: #5c9ead; /* Dezentes Akzentblau */
   --footer-bg: #e6f2f1; /* Leicht abgesetzte Farbe für den Footer */
+  --error-color: #e74c3c; /* Rot für Fehlermeldungen */
+  --success-color: #27ae60; /* Grün für Erfolgsmeldungen */
 }
 
 /* 🌍 Grundlegendes Styling */
@@ -21,6 +23,8 @@ body {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   line-height: 1.6;
 }
+
+/* 📌 Header-Bereich */
 .header {
   text-align: center;
   padding: 1rem;
@@ -66,15 +70,17 @@ body {
 .nav-link:hover {
   opacity: 0.9;
 }
+
 .menu-button {
   display: none;
   background: none;
   border: none;
-  color: white;
+  color: var(--primary-color);
   font-size: 1.5rem;
   cursor: pointer;
 }
-/* Ersetze die bestehenden intro-* Styles in deiner global.css mit diesen */
+
+/* 🏞️ Intro-Bereich mit Bild und Text */
 .intro-section {
   position: relative;
   width: 100%;
@@ -92,7 +98,6 @@ body {
 }
 
 /* Dunkler Overlay für bessere Lesbarkeit */
-/* Ersetze den bisherigen after-Overlay mit diesem */
 .intro-section::after {
   content: "";
   position: absolute;
@@ -138,38 +143,14 @@ body {
   justify-content: space-between;
 }
 
-.portrait-image {
-  border-radius: 4px; /* Ganz leicht abgerundet */
-}
-
-/* 📌 Footer */
-.footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: var(--footer-bg);
-  font-size: 14px;
-  border-top: 2px solid var(--primary-color);
-  margin-top: auto;
-}
-
-.footer a {
-  text-decoration: none;
-  color: var(--primary-color);
-  margin: 0 5px;
-}
-
-.footer a:hover {
-  color: var(--accent-color);
-}
-
-/* 📦 Angebote Container */
+/* 📦 Content Container */
 .container {
   max-width: 1200px;
   margin: 2rem auto;
   padding: 0 2rem;
 }
 
-/* 🎯 Angebote Titel */
+/* 🎯 Seitentitel */
 .title {
   color: var(--primary-color);
   text-align: center;
@@ -229,6 +210,7 @@ body {
   left: 0;
 }
 
+/* 👤 About Seite */
 .about-container {
   display: flex;
   gap: 3rem;
@@ -255,6 +237,7 @@ body {
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+
 .image-container {
   padding-left: 0;
   margin-left: -1.5rem; /* Ausgleich für das Padding der Liste */
@@ -263,12 +246,128 @@ body {
 .image-container::before {
   display: none; /* Versteckt den Bullet Point für Bilder */
 }
+
+/* ✉️ Kontaktseite */
+.kontakt-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Zwei Spalten nebeneinander */
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Kontaktformular Styling */
+.kontakt-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(122, 171, 162, 0.2);
+}
+
+.error-input {
+  border-color: var(--error-color) !important;
+}
+
+.error-text {
+  color: var(--error-color);
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.success-message {
+  background-color: rgba(39, 174, 96, 0.1);
+  color: var(--success-color);
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  border-left: 4px solid var(--success-color);
+}
+
+.submit-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 0.5rem;
+  align-self: flex-start;
+}
+
+.submit-button:hover {
+  background-color: var(--accent-color);
+}
+
+.submit-button:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+/* 📌 Footer */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--footer-bg);
+  font-size: 14px;
+  border-top: 2px solid var(--primary-color);
+  margin-top: auto;
+}
+
+.footer a {
+  text-decoration: none;
+  color: var(--primary-color);
+  margin: 0 5px;
+}
+
+.footer a:hover {
+  color: var(--accent-color);
+}
+
 /* 📱 Responsives Design */
 @media (max-width: 768px) {
+  /* Allgemeine Anpassungen */
   body {
     font-size: 16px;
   }
 
+  .container {
+    padding: 0 1rem;
+    margin: 1rem auto;
+  }
+
+  /* Header & Navigation */
   .header {
     padding: 1rem;
   }
@@ -287,74 +386,43 @@ body {
     background: var(--primary-color);
     padding: 1rem;
     gap: 1rem;
+    z-index: 100;
   }
 
   .nav.open {
     display: flex;
   }
-  .content-container {
-    flex-direction: column;
+
+  /* Intro Sektion */
+  .intro-section {
+    height: 50vh;
   }
 
-  /* Anpassung für mobile Geräte */
-  @media (max-width: 768px) {
-    .intro-section {
-      height: 50vh;
-    }
-
-    .intro-text {
-      padding: 2rem 1rem;
-    }
-
-    .intro-title {
-      font-size: 2rem;
-    }
-
-    .intro-subtitle {
-      font-size: 1.2rem;
-    }
+  .intro-text {
+    padding: 2rem 1rem;
+    margin-left: 1rem;
   }
 
-  .footer {
-    font-size: 12px;
+  .intro-title {
+    font-size: 2rem;
   }
 
-  /* Navigation für Mobile */
-  .menu-button {
-    display: block;
-    background: none;
-    border: none;
-    color: rgb(64, 88, 177);
-    font-size: 1.5rem;
-    cursor: pointer;
+  .intro-subtitle {
+    font-size: 1.2rem;
   }
 
-  nav {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: var(--primary-color);
-    padding: 1rem;
+  .intro-content {
+    flex-direction: column-reverse;
+    gap: 2rem;
   }
 
-  nav.open {
-    display: flex;
-  }
-
-  /* Angebote responsive Styles */
-  .container {
-    padding: 0 1rem;
-    margin: 1rem auto;
-  }
-
+  /* Seitentitel */
   .title {
     font-size: 2rem;
     margin-bottom: 2rem;
   }
 
+  /* Service Cards */
   .service-card {
     padding: 1.5rem;
   }
@@ -362,6 +430,8 @@ body {
   .service-title {
     font-size: 1.5rem;
   }
+
+  /* About Seite */
   .about-container {
     flex-direction: column-reverse;
     gap: 2rem;
@@ -379,20 +449,14 @@ body {
     max-width: 300px;
     height: auto;
   }
-  .intro-section {
-    padding: 2rem 1rem;
+
+  /* Kontaktseite */
+  .kontakt-container {
+    grid-template-columns: 1fr; /* Eine Spalte für mobile Ansicht */
   }
 
-  .intro-content {
-    flex-direction: column-reverse;
-    gap: 2rem;
-  }
-
-  .intro-title {
-    font-size: 2rem;
-  }
-
-  .intro-subtitle {
-    font-size: 1.2rem;
+  /* Footer */
+  .footer {
+    font-size: 12px;
   }
 }
