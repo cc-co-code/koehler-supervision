@@ -2,7 +2,6 @@ import React, { useState, FormEvent, ChangeEvent } from "react";
 import Head from "next/head";
 import Link from "next/link";
 
-// Typen für das Formular
 interface FormData {
   name: string;
   email: string;
