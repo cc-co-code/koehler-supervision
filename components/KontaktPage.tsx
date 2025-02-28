@@ -1,13 +1,14 @@
 import React, { useState, FormEvent, ChangeEvent } from "react";
 import Head from "next/head";
+import Link from "next/link";
 
 // Typen für das Formular
 interface FormData {
   name: string;
   email: string;
-  phone: string;
   subject: string;
   message: string;
+  datenschutz: boolean;
 }
 
 // Typen für die Formularfehler
@@ -15,6 +16,7 @@ interface FormErrors {
   name?: string;
   email?: string;
   message?: string;
+  datenschutz?: string;
 }
 
 const KontaktPage = () => {
@@ -22,9 +24,9 @@ const KontaktPage = () => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
-    phone: "",
     subject: "Einzelsupervision", // Standardwert
     message: "",
+    datenschutz: false,
   });
 
   // Status für Fehler, Erfolgsmeldung und Ladevorgang
@@ -36,11 +38,21 @@ const KontaktPage = () => {
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    const { name, value, type } = e.target;
+
+    // Checkbox-Werte anders behandeln
+    if (type === "checkbox") {
+      const { checked } = e.target as HTMLInputElement;
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: checked,
+      }));
+    } else {
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: value,
+      }));
+    }
 
     // Fehler zurücksetzen, wenn der Benutzer Änderungen vornimmt
     if (errors[name as keyof FormErrors]) {
@@ -68,6 +80,11 @@ const KontaktPage = () => {
 
     if (!formData.message.trim()) {
       newErrors.message = "Bitte geben Sie eine Nachricht ein";
+    }
+
+    // Datenschutz-Checkbox prüfen
+    if (!formData.datenschutz) {
+      newErrors.datenschutz = "Bitte akzeptieren Sie die Datenschutzerklärung";
     }
 
     setErrors(newErrors);
@@ -109,9 +126,9 @@ const KontaktPage = () => {
         setFormData({
           name: "",
           email: "",
-          phone: "",
           subject: "Einzelsupervision",
           message: "",
+          datenschutz: false,
         });
       } else {
         // Fehler vom Server
@@ -157,7 +174,11 @@ const KontaktPage = () => {
             Alternativ können Sie mir auch direkt eine E-Mail schreiben:
           </p>
           <p className="service-description">
-            <strong>info@koehlersupervision.de</strong>
+            <strong>
+              <a href="mailto:info@koehlersupervision.de">
+                info@koehlersupervision.de
+              </a>
+            </strong>
           </p>
         </div>
 
@@ -236,6 +257,32 @@ const KontaktPage = () => {
               {errors.message && (
                 <div id="message-error" className="error-text">
                   {errors.message}
+                </div>
+              )}
+            </div>
+
+            <div className="form-group">
+              <div className="checkbox-container">
+                <input
+                  type="checkbox"
+                  id="datenschutz"
+                  name="datenschutz"
+                  checked={formData.datenschutz}
+                  onChange={handleChange}
+                  className={errors.datenschutz ? "error-input" : ""}
+                  aria-describedby={
+                    errors.datenschutz ? "datenschutz-error" : undefined
+                  }
+                />
+                <label htmlFor="datenschutz">
+                  Ich habe die{" "}
+                  <Link href="/datenschutz">Datenschutzerklärung</Link> gelesen
+                  und bin mit der Verarbeitung meiner Daten einverstanden. *
+                </label>
+              </div>
+              {errors.datenschutz && (
+                <div id="datenschutz-error" className="error-text">
+                  {errors.datenschutz}
                 </div>
               )}
             </div>
