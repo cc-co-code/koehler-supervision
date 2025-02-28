@@ -35,8 +35,8 @@ export default async function handler(
 
     // E-Mail an die Supervisorin senden
     const { error } = await resend.emails.send({
-      from: "Köhler Supervision <noreply@koehlersupervision.de>", // Hier deine Domain anpassen
-      to: "cecilia.christina@proton.me", // E-Mail der Supervisorin
+      from: "Köhler Supervision <noreply@koehler-supervision.de>", // Hier deine Domain anpassen
+      to: "info@koehlersupervision.de", // E-Mail der Supervisorin
       subject: `Neue Kontaktanfrage: ${subject}`,
       html: `
         <h2>Neue Kontaktanfrage über die Website</h2>
@@ -58,14 +58,17 @@ export default async function handler(
 
     // Optional: Bestätigungs-E-Mail an den Absender
     await resend.emails.send({
-      from: "noreply@koehlersupervision.de", // Hier deine Domain anpassen
+      from: "noreply@koehler-supervision.de", // Hier deine Domain anpassen
       to: email,
       subject: "Vielen Dank für Ihre Kontaktanfrage",
       html: `
         <h2>Vielen Dank für Ihre Nachricht</h2>
         <p>Liebe(r) ${name},</p>
         <p>ich habe Ihre Kontaktanfrage erhalten und werde mich in Kürze bei Ihnen melden.</p>
-        <p>Mit freundlichen Grüßen,<br>Köhler Supervision</p>
+        
+        <p>Mit freundlichen Grüßen,</p>
+        
+        <p>Köhler Supervision </p>
       `,
     });
 
