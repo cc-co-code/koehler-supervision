@@ -352,6 +352,31 @@ body {
   color: var(--accent-color);
   text-decoration: underline;
 }
+/* Ergänzung für die Stylesheet-Datei */
+.checkbox-container {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.checkbox-container input[type="checkbox"] {
+  margin-right: 10px;
+  margin-top: 4px; /* Ausrichtung mit dem Text */
+}
+
+.checkbox-container label {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.checkbox-container a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.checkbox-container a:hover {
+  text-decoration: underline;
+}
 /* 📌 Footer */
 .footer {
   text-align: center;

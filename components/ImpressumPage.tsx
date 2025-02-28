@@ -15,7 +15,14 @@ const Impressum = () => {
 
         <h2 className="service-title">Kontakt</h2>
         <div className="impressum-section">
-          <p>E-Mail: info@koehlersupervision.de</p>
+          <p>
+            E-Mail:{" "}
+            <strong>
+              <a href="mailto:info@koehlersupervision.de">
+                info@koehlersupervision.de
+              </a>
+            </strong>
+          </p>
         </div>
 
         <h2 className="service-title">Verantwortlich für den Inhalt</h2>
@@ -43,7 +50,24 @@ const Impressum = () => {
             Inhalte umgehend entfernen.
           </p>
         </div>
-
+        <h2 className="service-title">Haftung für Links</h2>
+        <div className="impressum-section">
+          <p>
+            Meine Website enthält Links zu externen Websites Dritter, auf deren
+            Inhalte ich keinen Einfluss habe. Deshalb kann ich für diese fremden
+            Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten
+            Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten
+            verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der
+            Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige
+            Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.
+          </p>
+          <p>
+            Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist
+            jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht
+            zumutbar. Bei Bekanntwerden von Rechtsverletzungen werde ich
+            derartige Links umgehend entfernen.
+          </p>
+        </div>
         <h2 className="service-title">Urheberrecht</h2>
         <div className="impressum-section">
           <p>
