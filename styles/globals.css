@@ -27,9 +27,9 @@ body {
 /* 📌 Header-Bereich */
 .header {
   text-align: center;
-  padding: 1rem;
+  padding: 0.3rem;
   background-color: var(--footer-bg);
-  font-size: 14px;
+  font-size: 15px;
   border-bottom: 2px solid var(--primary-color);
 }
 
@@ -44,7 +44,7 @@ body {
 .logo-link {
   color: var(--primary-color);
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 2.3rem;
   font-weight: bold;
   transition: opacity 0.3s ease;
 }
@@ -189,8 +189,15 @@ body {
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
+.service-description a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
 
-/* 📋 Aufzählungsliste */
+.service-description a:hover {
+  text-decoration: underline;
+}
+
 .bullet-list {
   list-style-type: none;
   padding-left: 0;
@@ -240,7 +247,7 @@ body {
 
 .image-container {
   padding-left: 0;
-  margin-left: -1.5rem; /* Ausgleich für das Padding der Liste */
+  margin-left: -1.5rem;
 }
 
 .image-container::before {
