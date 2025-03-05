@@ -34,7 +34,12 @@ export default function Header({ title }: HeaderProps) {
 
         <nav className={`nav ${isMenuOpen ? "open" : ""}`}>
           {navItems.map((item) => (
-            <Link key={item.path} href={item.path} className="nav-link">
+            <Link
+              key={item.path}
+              href={item.path}
+              className="nav-link"
+              onClick={() => setIsMenuOpen(false)}
+            >
               {item.label}
             </Link>
           ))}

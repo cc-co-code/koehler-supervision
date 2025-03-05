@@ -31,6 +31,7 @@ body {
   background-color: var(--footer-bg);
   font-size: 15px;
   border-bottom: 2px solid var(--primary-color);
+  position: relative;
 }
 
 .header-content {
@@ -436,12 +437,24 @@ body {
     padding: 1rem;
     gap: 1rem;
     z-index: 100;
+    width: 100%; /* Volle Breite */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
   .nav.open {
     display: flex;
   }
+  .nav-link {
+    color: white; /* Für bessere Lesbarkeit auf dem farbigen Hintergrund */
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem 0;
+  }
 
+  .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
   /* Intro Sektion */
   .intro-section {
     height: 50vh;
