@@ -56,6 +56,7 @@ export default function UeberMich() {
     { content: "Diplom Psychologin" },
     { content: "Systemische Beratung und Therapie (NIK Bremen)" },
     { content: "Psychoonkologie (WPO)" },
+    { content: "Weiterbildung Supervision und Coaching (EZI)" },
     { content: "Video Home Training SPIN" },
     { content: "Integrierte Familienorientierte Beratung Berlin (EZI/EKFUL)" },
     {
